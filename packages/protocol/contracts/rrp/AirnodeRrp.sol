@@ -33,45 +33,6 @@ contract AirnodeRrp is
     /// expected (i.e., if there are recorded fulfillment parameters)
     mapping(bytes32 => bytes32) private requestIdToFulfillmentParameters;
 
-    /// @dev Reverts if the incoming fulfillment parameters do not match the
-    /// ones provided in the request
-    /// @param requestId Request ID
-    /// @param airnode Airnode address
-    /// @param fulfillAddress Address that will be called to fulfill
-    /// @param fulfillFunctionId Signature of the function that will be called
-    /// to fulfill
-    modifier onlyCorrectFulfillmentParameters(
-        bytes32 requestId,
-        address airnode,
-        address fulfillAddress,
-        bytes4 fulfillFunctionId
-    ) {
-        require(
-            keccak256(
-                abi.encodePacked(
-                    airnode,
-                    fulfillAddress,
-                    fulfillFunctionId
-                )
-            ) == requestIdToFulfillmentParameters[requestId],
-            "Invalid request fulfillment"
-        );
-        _;
-    }
-
-    modifier onlyWithCorrectSignature(
-      bytes32 requestId,
-      address airnode,
-      bytes calldata data,
-      bytes calldata signature
-    ) {
-      require(
-            (keccak256(abi.encodePacked(requestId, data)).toEthSignedMessageHash()).recover(signature) == airnode,
-            "Invalid signature"
-        );
-        _;
-    }
-
     /// @notice Called by the sponsor to set the sponsorship status of a
     /// requester, i.e., allow or disallow a requester to make requests that
     /// will be fulfilled by the sponsor wallet
@@ -196,11 +157,7 @@ contract AirnodeRrp is
             )
         );
         requestIdToFulfillmentParameters[requestId] = keccak256(
-            abi.encodePacked(
-                airnode,
-                fulfillAddress,
-                fulfillFunctionId
-            )
+            abi.encodePacked(airnode, fulfillAddress, fulfillFunctionId)
         );
         requesterToRequestCountPlusOne[msg.sender]++;
         emit MadeFullRequest(
@@ -243,18 +200,20 @@ contract AirnodeRrp is
         address fulfillAddress,
         bytes4 fulfillFunctionId,
         bytes calldata signature
-    )
-        external
-        override
-        onlyCorrectFulfillmentParameters(
-            requestId,
-            airnode,
-            fulfillAddress,
-            fulfillFunctionId
-        )
-        onlyWithCorrectSignature(requestId, airnode, data, signature)
-        returns (bool callSuccess, bytes memory callData)
-    {
+    ) external override returns (bool callSuccess, bytes memory callData) {
+        require(
+            keccak256(
+                abi.encodePacked(airnode, fulfillAddress, fulfillFunctionId)
+            ) == requestIdToFulfillmentParameters[requestId],
+            "Invalid request fulfillment"
+        );
+        require(
+            (
+                keccak256(abi.encodePacked(requestId, data))
+                    .toEthSignedMessageHash()
+            ).recover(signature) == airnode,
+            "Invalid signature"
+        );
         delete requestIdToFulfillmentParameters[requestId];
         (callSuccess, callData) = fulfillAddress.call( // solhint-disable-line avoid-low-level-calls
             abi.encodeWithSelector(fulfillFunctionId, requestId, data)
@@ -287,17 +246,20 @@ contract AirnodeRrp is
         bytes4 fulfillFunctionId,
         string calldata errorMessage,
         bytes calldata signature
-    )
-        external
-        override
-        onlyCorrectFulfillmentParameters(
-            requestId,
-            airnode,
-            fulfillAddress,
-            fulfillFunctionId
-        )
-        onlyWithCorrectSignature(requestId, airnode, bytes(errorMessage), signature)
-    {
+    ) external override {
+        require(
+            keccak256(
+                abi.encodePacked(airnode, fulfillAddress, fulfillFunctionId)
+            ) == requestIdToFulfillmentParameters[requestId],
+            "Invalid request fulfillment"
+        );
+        require(
+            (
+                keccak256(abi.encodePacked(requestId, bytes(signature)))
+                    .toEthSignedMessageHash()
+            ).recover(signature) == airnode,
+            "Invalid signature"
+        );
         delete requestIdToFulfillmentParameters[requestId];
         emit FailedRequest(airnode, requestId, errorMessage);
     }
