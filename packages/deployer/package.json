@@ -1,7 +1,7 @@
 {
   "name": "@api3/deployer",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "bin": {
     "api3-deployer": "./dist/bin/deployer.js"
   },
@@ -22,9 +22,9 @@
     "webpack:dev": "webpack --mode development"
   },
   "dependencies": {
-    "@api3/node": "^0.1.0",
-    "@api3/ois": "^0.1.0",
-    "@api3/protocol": "^0.1.0",
+    "@api3/node": "^0.2.0",
+    "@api3/ois": "^0.2.0",
+    "@api3/protocol": "^0.2.0",
     "aws-sdk": "^2.992.0",
     "dotenv": "^10.0.0",
     "ethers": "^5.4.5",
