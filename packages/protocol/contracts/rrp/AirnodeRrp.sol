@@ -95,6 +95,8 @@ contract AirnodeRrp is
                 msg.sender,
                 templateId,
                 sponsor,
+                fulfillAddress,
+                fulfillFunctionId,
                 parameters
             )
         );
@@ -151,8 +153,11 @@ contract AirnodeRrp is
                 requesterRequestCount,
                 block.chainid,
                 msg.sender,
+                airnode,
                 endpointId,
                 sponsor,
+                fulfillAddress,
+                fulfillFunctionId,
                 parameters
             )
         );
