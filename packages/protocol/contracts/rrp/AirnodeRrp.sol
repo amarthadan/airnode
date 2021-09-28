@@ -138,11 +138,7 @@ contract AirnodeRrp is
             )
         );
         requestIdToFulfillmentParameters[requestId] = keccak256(
-            abi.encodePacked(
-                airnode,
-                fulfillAddress,
-                fulfillFunctionId
-            )
+            abi.encodePacked(airnode, fulfillAddress, fulfillFunctionId)
         );
         emit MadeTemplateRequest(
             airnode,

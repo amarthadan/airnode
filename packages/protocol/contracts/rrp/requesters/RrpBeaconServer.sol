@@ -83,10 +83,10 @@ contract RrpBeaconServer is
     /// @param templateId Template ID of the beacon to be updated
     /// @param sponsor Sponsor whose wallet will be used to fulfill this
     /// request
-    function requestBeaconUpdate(
-        bytes32 templateId,
-        address sponsor
-    ) external override {
+    function requestBeaconUpdate(bytes32 templateId, address sponsor)
+        external
+        override
+    {
         require(
             sponsorToUpdateRequesterToPermissionStatus[sponsor][msg.sender],
             "Caller not permitted"
@@ -99,12 +99,7 @@ contract RrpBeaconServer is
             ""
         );
         requestIdToTemplateId[requestId] = templateId;
-        emit RequestedBeaconUpdate(
-            templateId,
-            sponsor,
-            msg.sender,
-            requestId
-        );
+        emit RequestedBeaconUpdate(templateId, sponsor, msg.sender, requestId);
     }
 
     /// @notice Called by AirnodeRrp to fulfill the request

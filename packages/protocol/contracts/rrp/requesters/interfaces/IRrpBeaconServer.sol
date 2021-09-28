@@ -48,10 +48,8 @@ interface IRrpBeaconServer is IAdminnable {
     function setUpdatePermissionStatus(address updateRequester, bool status)
         external;
 
-    function requestBeaconUpdate(
-        bytes32 templateId,
-        address requester
-    ) external;
+    function requestBeaconUpdate(bytes32 templateId, address requester)
+        external;
 
     function fulfill(bytes32 requestId, bytes calldata data) external;
 
