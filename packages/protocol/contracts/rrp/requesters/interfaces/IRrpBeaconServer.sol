@@ -14,8 +14,7 @@ interface IRrpBeaconServer is IAdminnable {
         bytes32 indexed templateId,
         address indexed sponsor,
         address indexed requester,
-        bytes32 requestId,
-        address sponsorWallet
+        bytes32 requestId
     );
 
     event UpdatedBeacon(
@@ -51,8 +50,7 @@ interface IRrpBeaconServer is IAdminnable {
 
     function requestBeaconUpdate(
         bytes32 templateId,
-        address requester,
-        address designatedWallet
+        address requester
     ) external;
 
     function fulfill(bytes32 requestId, bytes calldata data) external;

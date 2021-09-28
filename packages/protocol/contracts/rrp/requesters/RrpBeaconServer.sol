@@ -83,12 +83,9 @@ contract RrpBeaconServer is
     /// @param templateId Template ID of the beacon to be updated
     /// @param sponsor Sponsor whose wallet will be used to fulfill this
     /// request
-    /// @param sponsorWallet Sponsor wallet that will be used to fulfill this
-    /// request
     function requestBeaconUpdate(
         bytes32 templateId,
-        address sponsor,
-        address sponsorWallet
+        address sponsor
     ) external override {
         require(
             sponsorToUpdateRequesterToPermissionStatus[sponsor][msg.sender],
@@ -97,7 +94,6 @@ contract RrpBeaconServer is
         bytes32 requestId = airnodeRrp.makeTemplateRequest(
             templateId,
             sponsor,
-            sponsorWallet,
             address(this),
             this.fulfill.selector,
             ""
@@ -107,8 +103,7 @@ contract RrpBeaconServer is
             templateId,
             sponsor,
             msg.sender,
-            requestId,
-            sponsorWallet
+            requestId
         );
     }
 

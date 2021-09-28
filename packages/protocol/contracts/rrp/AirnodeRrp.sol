@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.6;
 
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "./AuthorizationUtils.sol";
 import "./TemplateUtils.sol";
 import "./WithdrawalUtils.sol";
@@ -13,6 +14,8 @@ contract AirnodeRrp is
     WithdrawalUtils,
     IAirnodeRrp
 {
+    using ECDSA for bytes32;
+
     /// @notice Called to get the sponsorship status for a sponsor–requester
     /// pair
     mapping(address => mapping(address => bool))
@@ -47,12 +50,24 @@ contract AirnodeRrp is
             keccak256(
                 abi.encodePacked(
                     airnode,
-                    msg.sender,
                     fulfillAddress,
                     fulfillFunctionId
                 )
             ) == requestIdToFulfillmentParameters[requestId],
             "Invalid request fulfillment"
+        );
+        _;
+    }
+
+    modifier onlyWithCorrectSignature(
+      bytes32 requestId,
+      address airnode,
+      bytes calldata data,
+      bytes calldata signature
+    ) {
+      require(
+            (keccak256(abi.encodePacked(requestId, data)).toEthSignedMessageHash()).recover(signature) == airnode,
+            "Invalid signature"
         );
         _;
     }
@@ -87,8 +102,6 @@ contract AirnodeRrp is
     /// protocol as intended, but it is done for good measure.
     /// @param templateId Template ID
     /// @param sponsor Sponsor address
-    /// @param sponsorWallet Sponsor wallet that is requested to fulfill the
-    /// request
     /// @param fulfillAddress Address that will be called to fulfill
     /// @param fulfillFunctionId Signature of the function that will be called
     /// to fulfill
@@ -98,7 +111,6 @@ contract AirnodeRrp is
     function makeTemplateRequest(
         bytes32 templateId,
         address sponsor,
-        address sponsorWallet,
         address fulfillAddress,
         bytes4 fulfillFunctionId,
         bytes calldata parameters
@@ -128,7 +140,6 @@ contract AirnodeRrp is
         requestIdToFulfillmentParameters[requestId] = keccak256(
             abi.encodePacked(
                 airnode,
-                sponsorWallet,
                 fulfillAddress,
                 fulfillFunctionId
             )
@@ -141,7 +152,6 @@ contract AirnodeRrp is
             msg.sender,
             templateId,
             sponsor,
-            sponsorWallet,
             fulfillAddress,
             fulfillFunctionId,
             parameters
@@ -157,8 +167,6 @@ contract AirnodeRrp is
     /// @param airnode Airnode address
     /// @param endpointId Endpoint ID (allowed to be `bytes32(0)`)
     /// @param sponsor Sponsor address
-    /// @param sponsorWallet Sponsor wallet that is requested to fulfill
-    /// the request
     /// @param fulfillAddress Address that will be called to fulfill
     /// @param fulfillFunctionId Signature of the function that will be called
     /// to fulfill
@@ -168,7 +176,6 @@ contract AirnodeRrp is
         address airnode,
         bytes32 endpointId,
         address sponsor,
-        address sponsorWallet,
         address fulfillAddress,
         bytes4 fulfillFunctionId,
         bytes calldata parameters
@@ -195,7 +202,6 @@ contract AirnodeRrp is
         requestIdToFulfillmentParameters[requestId] = keccak256(
             abi.encodePacked(
                 airnode,
-                sponsorWallet,
                 fulfillAddress,
                 fulfillFunctionId
             )
@@ -209,7 +215,6 @@ contract AirnodeRrp is
             msg.sender,
             endpointId,
             sponsor,
-            sponsorWallet,
             fulfillAddress,
             fulfillFunctionId,
             parameters
@@ -240,7 +245,8 @@ contract AirnodeRrp is
         address airnode,
         bytes calldata data,
         address fulfillAddress,
-        bytes4 fulfillFunctionId
+        bytes4 fulfillFunctionId,
+        bytes calldata signature
     )
         external
         override
@@ -250,6 +256,7 @@ contract AirnodeRrp is
             fulfillAddress,
             fulfillFunctionId
         )
+        onlyWithCorrectSignature(requestId, airnode, data, signature)
         returns (bool callSuccess, bytes memory callData)
     {
         delete requestIdToFulfillmentParameters[requestId];
@@ -282,7 +289,8 @@ contract AirnodeRrp is
         address airnode,
         address fulfillAddress,
         bytes4 fulfillFunctionId,
-        string calldata errorMessage
+        string calldata errorMessage,
+        bytes calldata signature
     )
         external
         override
@@ -292,6 +300,7 @@ contract AirnodeRrp is
             fulfillAddress,
             fulfillFunctionId
         )
+        onlyWithCorrectSignature(requestId, airnode, bytes(errorMessage), signature)
     {
         delete requestIdToFulfillmentParameters[requestId];
         emit FailedRequest(airnode, requestId, errorMessage);

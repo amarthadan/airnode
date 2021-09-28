@@ -20,7 +20,6 @@ interface IAirnodeRrp is IAuthorizationUtils, ITemplateUtils, IWithdrawalUtils {
         address requester,
         bytes32 templateId,
         address sponsor,
-        address sponsorWallet,
         address fulfillAddress,
         bytes4 fulfillFunctionId,
         bytes parameters
@@ -34,7 +33,6 @@ interface IAirnodeRrp is IAuthorizationUtils, ITemplateUtils, IWithdrawalUtils {
         address requester,
         bytes32 endpointId,
         address sponsor,
-        address sponsorWallet,
         address fulfillAddress,
         bytes4 fulfillFunctionId,
         bytes parameters
@@ -58,7 +56,6 @@ interface IAirnodeRrp is IAuthorizationUtils, ITemplateUtils, IWithdrawalUtils {
     function makeTemplateRequest(
         bytes32 templateId,
         address sponsor,
-        address sponsorWallet,
         address fulfillAddress,
         bytes4 fulfillFunctionId,
         bytes calldata parameters
@@ -68,7 +65,6 @@ interface IAirnodeRrp is IAuthorizationUtils, ITemplateUtils, IWithdrawalUtils {
         address airnode,
         bytes32 endpointId,
         address sponsor,
-        address sponsorWallet,
         address fulfillAddress,
         bytes4 fulfillFunctionId,
         bytes calldata parameters
@@ -79,7 +75,8 @@ interface IAirnodeRrp is IAuthorizationUtils, ITemplateUtils, IWithdrawalUtils {
         address airnode,
         bytes calldata data,
         address fulfillAddress,
-        bytes4 fulfillFunctionId
+        bytes4 fulfillFunctionId,
+        bytes calldata signature
     ) external returns (bool callSuccess, bytes memory callData);
 
     function fail(
@@ -87,7 +84,8 @@ interface IAirnodeRrp is IAuthorizationUtils, ITemplateUtils, IWithdrawalUtils {
         address airnode,
         address fulfillAddress,
         bytes4 fulfillFunctionId,
-        string calldata errorMessage
+        string calldata errorMessage,
+        bytes calldata signature
     ) external;
 
     function sponsorToRequesterToSponsorshipStatus(

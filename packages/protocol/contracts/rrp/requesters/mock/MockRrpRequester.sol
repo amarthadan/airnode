@@ -18,8 +18,6 @@ contract MockRrpRequester is RrpRequester {
     /// testing
     /// @param templateId Template ID
     /// @param sponsor Sponsor address
-    /// @param sponsorWallet Sponsor wallet that is requested to fulfill
-    /// the request
     /// @param fulfillAddress Address that will be called to fulfill
     /// @param fulfillFunctionId Signature of the function that will be called
     /// to fulfill
@@ -28,7 +26,6 @@ contract MockRrpRequester is RrpRequester {
     function makeTemplateRequest(
         bytes32 templateId,
         address sponsor,
-        address sponsorWallet,
         address fulfillAddress,
         bytes4 fulfillFunctionId,
         bytes calldata parameters
@@ -36,7 +33,6 @@ contract MockRrpRequester is RrpRequester {
         bytes32 requestId = airnodeRrp.makeTemplateRequest(
             templateId,
             sponsor,
-            sponsorWallet,
             fulfillAddress,
             fulfillFunctionId,
             parameters
@@ -49,8 +45,6 @@ contract MockRrpRequester is RrpRequester {
     /// @param airnode Airnode address
     /// @param endpointId Endpoint ID
     /// @param sponsor Sponsor address
-    /// @param sponsorWallet Sponsor wallet that is requested to fulfill
-    /// the request
     /// @param fulfillAddress Address that will be called to fulfill
     /// @param fulfillFunctionId Signature of the function that will be called
     /// to fulfill
@@ -59,7 +53,6 @@ contract MockRrpRequester is RrpRequester {
         address airnode,
         bytes32 endpointId,
         address sponsor,
-        address sponsorWallet,
         address fulfillAddress,
         bytes4 fulfillFunctionId,
         bytes calldata parameters
@@ -68,7 +61,6 @@ contract MockRrpRequester is RrpRequester {
             airnode,
             endpointId,
             sponsor,
-            sponsorWallet,
             fulfillAddress,
             fulfillFunctionId,
             parameters
@@ -131,8 +123,6 @@ contract MockRrpRequester is RrpRequester {
     /// @dev The withdrawal requested by calling this will revert because this
     /// contract does not implement a default payable method
     /// @param airnode Airnode address
-    /// @param sponsorWallet Sponsor wallet that the withdrawal is requested
-    /// from
     function requestWithdrawal(address airnode, address sponsorWallet)
         external
     {
