@@ -1,5 +1,17 @@
 # @api3/airnode-examples
 
+## 0.8.0
+
+### Patch Changes
+
+- Updated dependencies [[`0f68d678`](https://github.com/api3dao/airnode/commit/0f68d678e9f4512e30f482c7dbc6db8defd7cfc2)]:
+  - @api3/airnode-abi@0.8.0
+  - @api3/airnode-admin@0.8.0
+  - @api3/airnode-deployer@0.8.0
+  - @api3/airnode-node@0.8.0
+  - @api3/airnode-protocol@0.8.0
+  - @api3/airnode-utilities@0.8.0
+
 ## 0.7.1
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @api3/airnode-validator
 
+## 0.8.0
+
+### Minor Changes
+
+- [#1301](https://github.com/api3dao/airnode/pull/1301) [`0f68d678`](https://github.com/api3dao/airnode/commit/0f68d678e9f4512e30f482c7dbc6db8defd7cfc2) Thanks [@Siegrift](https://github.com/Siegrift)! - Add success property inside receipt.json
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @api3/airnode-utilities@0.8.0
+
 ## 0.7.1
 
 ### Patch Changes
