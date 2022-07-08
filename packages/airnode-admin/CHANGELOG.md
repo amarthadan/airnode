@@ -1,5 +1,29 @@
 # @api3/airnode-admin
 
+## 0.8.0
+
+### Minor Changes
+
+- [#1297](https://github.com/api3dao/airnode/pull/1297) [`08fc5aa2`](https://github.com/api3dao/airnode/commit/08fc5aa2deead6270830557d91618bcc17eada98) Thanks [@Siegrift](https://github.com/Siegrift)! - Define protocol indices in airnode-protocol
+
+* [#1279](https://github.com/api3dao/airnode/pull/1279) [`eb2de5fc`](https://github.com/api3dao/airnode/commit/eb2de5fcbed08133c9bdec8045f4eb9b2729882b) Thanks [@amarthadan](https://github.com/amarthadan)! - Improve mnemonic visibility for `generate-mnemonic` command
+
+- [#1285](https://github.com/api3dao/airnode/pull/1285) [`b799a215`](https://github.com/api3dao/airnode/commit/b799a215a0be5822241e97832777cb168b2657e2) Thanks [@vponline](https://github.com/vponline)! - Add authorizations configuration to config.json
+
+* [#1262](https://github.com/api3dao/airnode/pull/1262) [`4a1f2336`](https://github.com/api3dao/airnode/commit/4a1f2336765cdeb72b4e7a9b1d0b53b29fd69693) Thanks [@amarthadan](https://github.com/amarthadan)! - Improve mnemonic visibility in `generate-mnemonic` command
+
+- [#1291](https://github.com/api3dao/airnode/pull/1291) [`c7d689e7`](https://github.com/api3dao/airnode/commit/c7d689e7937493f151bafa1c131be77e4396a2aa) Thanks [@vponline](https://github.com/vponline)! - Add authorizer type to config.json
+
+* [#1277](https://github.com/api3dao/airnode/pull/1277) [`e34bfb8e`](https://github.com/api3dao/airnode/commit/e34bfb8e0b2cc847b19ccb753b316b4486094579) Thanks [@Siegrift](https://github.com/Siegrift)! - Link monorepo packages using project references
+
+### Patch Changes
+
+- Updated dependencies [[`08fc5aa2`](https://github.com/api3dao/airnode/commit/08fc5aa2deead6270830557d91618bcc17eada98), [`87ff06e3`](https://github.com/api3dao/airnode/commit/87ff06e30449a1ce40144954d8e8eef56f30e7b6), [`8abc3d4e`](https://github.com/api3dao/airnode/commit/8abc3d4eaf50a03b4165d049d71b77ed52583d5c), [`eedbba54`](https://github.com/api3dao/airnode/commit/eedbba54b807f55dee4f3c5702954b8b0a32e596), [`f7c3bb9f`](https://github.com/api3dao/airnode/commit/f7c3bb9f44637bc433134d94265b355d7e8e5761), [`45198315`](https://github.com/api3dao/airnode/commit/4519831513db9e79caadafcd307cea23ee87d113), [`b799a215`](https://github.com/api3dao/airnode/commit/b799a215a0be5822241e97832777cb168b2657e2), [`ffba0579`](https://github.com/api3dao/airnode/commit/ffba05791a410f3d3527cc5319b8cb99fd96eccc), [`c7d689e7`](https://github.com/api3dao/airnode/commit/c7d689e7937493f151bafa1c131be77e4396a2aa), [`0f68d678`](https://github.com/api3dao/airnode/commit/0f68d678e9f4512e30f482c7dbc6db8defd7cfc2), [`e34bfb8e`](https://github.com/api3dao/airnode/commit/e34bfb8e0b2cc847b19ccb753b316b4486094579), [`11d49f21`](https://github.com/api3dao/airnode/commit/11d49f21a4a18e44897df58dcba7818be6327c00)]:
+  - @api3/airnode-protocol@0.8.0
+  - @api3/airnode-validator@0.8.0
+  - @api3/airnode-utilities@0.8.0
+  - @api3/airnode-abi@0.8.0
+
 ## 0.7.1
 
 ### Patch Changes

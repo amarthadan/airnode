@@ -1,5 +1,24 @@
 # @api3/airnode-operation
 
+## 0.8.0
+
+### Minor Changes
+
+- [#1297](https://github.com/api3dao/airnode/pull/1297) [`08fc5aa2`](https://github.com/api3dao/airnode/commit/08fc5aa2deead6270830557d91618bcc17eada98) Thanks [@Siegrift](https://github.com/Siegrift)! - Define protocol indices in airnode-protocol
+
+* [#1285](https://github.com/api3dao/airnode/pull/1285) [`b799a215`](https://github.com/api3dao/airnode/commit/b799a215a0be5822241e97832777cb168b2657e2) Thanks [@vponline](https://github.com/vponline)! - Add authorizations configuration to config.json
+
+- [#1291](https://github.com/api3dao/airnode/pull/1291) [`c7d689e7`](https://github.com/api3dao/airnode/commit/c7d689e7937493f151bafa1c131be77e4396a2aa) Thanks [@vponline](https://github.com/vponline)! - Add authorizer type to config.json
+
+* [#1277](https://github.com/api3dao/airnode/pull/1277) [`e34bfb8e`](https://github.com/api3dao/airnode/commit/e34bfb8e0b2cc847b19ccb753b316b4486094579) Thanks [@Siegrift](https://github.com/Siegrift)! - Link monorepo packages using project references
+
+### Patch Changes
+
+- Updated dependencies [[`08fc5aa2`](https://github.com/api3dao/airnode/commit/08fc5aa2deead6270830557d91618bcc17eada98), [`f7c3bb9f`](https://github.com/api3dao/airnode/commit/f7c3bb9f44637bc433134d94265b355d7e8e5761), [`45198315`](https://github.com/api3dao/airnode/commit/4519831513db9e79caadafcd307cea23ee87d113), [`b799a215`](https://github.com/api3dao/airnode/commit/b799a215a0be5822241e97832777cb168b2657e2), [`c7d689e7`](https://github.com/api3dao/airnode/commit/c7d689e7937493f151bafa1c131be77e4396a2aa), [`e34bfb8e`](https://github.com/api3dao/airnode/commit/e34bfb8e0b2cc847b19ccb753b316b4486094579)]:
+  - @api3/airnode-protocol@0.8.0
+  - @api3/airnode-utilities@0.8.0
+  - @api3/airnode-abi@0.8.0
+
 ## 0.7.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @api3/airnode-abi
 
+## 0.8.0
+
+### Minor Changes
+
+- [#1277](https://github.com/api3dao/airnode/pull/1277) [`e34bfb8e`](https://github.com/api3dao/airnode/commit/e34bfb8e0b2cc847b19ccb753b316b4486094579) Thanks [@Siegrift](https://github.com/Siegrift)! - Link monorepo packages using project references
+
 ## 0.7.1
 
 ### Patch Changes

@@ -1,5 +1,42 @@
 # @api3/airnode-deployer
 
+## 0.8.0
+
+### Minor Changes
+
+- [#1292](https://github.com/api3dao/airnode/pull/1292) [`87ff06e3`](https://github.com/api3dao/airnode/commit/87ff06e30449a1ce40144954d8e8eef56f30e7b6) Thanks [@Siegrift](https://github.com/Siegrift)! - Unify error handling of AWS and GCP gateways
+
+* [#1302](https://github.com/api3dao/airnode/pull/1302) [`8abc3d4e`](https://github.com/api3dao/airnode/commit/8abc3d4eaf50a03b4165d049d71b77ed52583d5c) Thanks [@Siegrift](https://github.com/Siegrift)! - Automatically try removing failed Airnode deployment
+
+- [#1275](https://github.com/api3dao/airnode/pull/1275) [`eedbba54`](https://github.com/api3dao/airnode/commit/eedbba54b807f55dee4f3c5702954b8b0a32e596) Thanks [@amarthadan](https://github.com/amarthadan)! - Remove gateway URLs from receipt.json
+
+* [#1276](https://github.com/api3dao/airnode/pull/1276) [`f7c3bb9f`](https://github.com/api3dao/airnode/commit/f7c3bb9f44637bc433134d94265b355d7e8e5761) Thanks [@vponline](https://github.com/vponline)! - Replace attempt library retries with promise-utils
+
+- [#1285](https://github.com/api3dao/airnode/pull/1285) [`b799a215`](https://github.com/api3dao/airnode/commit/b799a215a0be5822241e97832777cb168b2657e2) Thanks [@vponline](https://github.com/vponline)! - Add authorizations configuration to config.json
+
+* [#1291](https://github.com/api3dao/airnode/pull/1291) [`c7d689e7`](https://github.com/api3dao/airnode/commit/c7d689e7937493f151bafa1c131be77e4396a2aa) Thanks [@vponline](https://github.com/vponline)! - Add authorizer type to config.json
+
+- [#1300](https://github.com/api3dao/airnode/pull/1300) [`d2b588e8`](https://github.com/api3dao/airnode/commit/d2b588e8646f7a016c76e8ad160113cbc8c57c1d) Thanks [@vponline](https://github.com/vponline)! - Derive Airnode wallet private key during deployment, add it to environment variables, use private key to derive Airnode wallet
+
+* [#1260](https://github.com/api3dao/airnode/pull/1260) [`b9abf103`](https://github.com/api3dao/airnode/commit/b9abf1036fab15f8fe71f560d2b9f534ff2ab12c) Thanks [@renovate](https://github.com/apps/renovate)! - Change Terraform versioning for recipes
+
+- [#1301](https://github.com/api3dao/airnode/pull/1301) [`0f68d678`](https://github.com/api3dao/airnode/commit/0f68d678e9f4512e30f482c7dbc6db8defd7cfc2) Thanks [@Siegrift](https://github.com/Siegrift)! - Add success property inside receipt.json
+
+* [#1277](https://github.com/api3dao/airnode/pull/1277) [`e34bfb8e`](https://github.com/api3dao/airnode/commit/e34bfb8e0b2cc847b19ccb753b316b4486094579) Thanks [@Siegrift](https://github.com/Siegrift)! - Link monorepo packages using project references
+
+### Patch Changes
+
+- [#1316](https://github.com/api3dao/airnode/pull/1316) [`9be7fa09`](https://github.com/api3dao/airnode/commit/9be7fa09c34dd2e25a6a900de0b11595e426b4e8) Thanks [@Siegrift](https://github.com/Siegrift)! - Fix description of "auto-remove" deployer command
+
+* [#1294](https://github.com/api3dao/airnode/pull/1294) [`1b873194`](https://github.com/api3dao/airnode/commit/1b87319416e2b7fec2c8b71d1661f8f69a092fa8) Thanks [@amarthadan](https://github.com/amarthadan)! - Fix GCP gateway URLs in heartbeat payload
+
+* Updated dependencies [[`08fc5aa2`](https://github.com/api3dao/airnode/commit/08fc5aa2deead6270830557d91618bcc17eada98), [`87ff06e3`](https://github.com/api3dao/airnode/commit/87ff06e30449a1ce40144954d8e8eef56f30e7b6), [`8abc3d4e`](https://github.com/api3dao/airnode/commit/8abc3d4eaf50a03b4165d049d71b77ed52583d5c), [`eedbba54`](https://github.com/api3dao/airnode/commit/eedbba54b807f55dee4f3c5702954b8b0a32e596), [`d63e89a0`](https://github.com/api3dao/airnode/commit/d63e89a070264490de8df5e64a98c901615b933f), [`f7c3bb9f`](https://github.com/api3dao/airnode/commit/f7c3bb9f44637bc433134d94265b355d7e8e5761), [`45198315`](https://github.com/api3dao/airnode/commit/4519831513db9e79caadafcd307cea23ee87d113), [`b799a215`](https://github.com/api3dao/airnode/commit/b799a215a0be5822241e97832777cb168b2657e2), [`ffba0579`](https://github.com/api3dao/airnode/commit/ffba05791a410f3d3527cc5319b8cb99fd96eccc), [`c7d689e7`](https://github.com/api3dao/airnode/commit/c7d689e7937493f151bafa1c131be77e4396a2aa), [`115c13db`](https://github.com/api3dao/airnode/commit/115c13db7a77e7fbbd48adaef7ef11b7ea63e7f0), [`d2b588e8`](https://github.com/api3dao/airnode/commit/d2b588e8646f7a016c76e8ad160113cbc8c57c1d), [`0f68d678`](https://github.com/api3dao/airnode/commit/0f68d678e9f4512e30f482c7dbc6db8defd7cfc2), [`e34bfb8e`](https://github.com/api3dao/airnode/commit/e34bfb8e0b2cc847b19ccb753b316b4486094579), [`11d49f21`](https://github.com/api3dao/airnode/commit/11d49f21a4a18e44897df58dcba7818be6327c00), [`fe0c102b`](https://github.com/api3dao/airnode/commit/fe0c102b53e3ecee5945f415287d01d71ef1d818), [`69dfe2ac`](https://github.com/api3dao/airnode/commit/69dfe2ace0c677b13952e1a41b896db47fd5ccf0)]:
+  - @api3/airnode-node@0.8.0
+  - @api3/airnode-protocol@0.8.0
+  - @api3/airnode-validator@0.8.0
+  - @api3/airnode-utilities@0.8.0
+  - @api3/airnode-abi@0.8.0
+
 ## 0.7.1
 
 ### Patch Changes

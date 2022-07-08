@@ -1,5 +1,32 @@
 # @api3/airnode-validator
 
+## 0.8.0
+
+### Minor Changes
+
+- [#1292](https://github.com/api3dao/airnode/pull/1292) [`87ff06e3`](https://github.com/api3dao/airnode/commit/87ff06e30449a1ce40144954d8e8eef56f30e7b6) Thanks [@Siegrift](https://github.com/Siegrift)! - Unify error handling of AWS and GCP gateways
+
+* [#1302](https://github.com/api3dao/airnode/pull/1302) [`8abc3d4e`](https://github.com/api3dao/airnode/commit/8abc3d4eaf50a03b4165d049d71b77ed52583d5c) Thanks [@Siegrift](https://github.com/Siegrift)! - Automatically try removing failed Airnode deployment
+
+- [#1275](https://github.com/api3dao/airnode/pull/1275) [`eedbba54`](https://github.com/api3dao/airnode/commit/eedbba54b807f55dee4f3c5702954b8b0a32e596) Thanks [@amarthadan](https://github.com/amarthadan)! - Remove gateway URLs from receipt.json
+
+* [#1285](https://github.com/api3dao/airnode/pull/1285) [`b799a215`](https://github.com/api3dao/airnode/commit/b799a215a0be5822241e97832777cb168b2657e2) Thanks [@vponline](https://github.com/vponline)! - Add authorizations configuration to config.json
+
+- [#1291](https://github.com/api3dao/airnode/pull/1291) [`c7d689e7`](https://github.com/api3dao/airnode/commit/c7d689e7937493f151bafa1c131be77e4396a2aa) Thanks [@vponline](https://github.com/vponline)! - Add authorizer type to config.json
+
+* [#1301](https://github.com/api3dao/airnode/pull/1301) [`0f68d678`](https://github.com/api3dao/airnode/commit/0f68d678e9f4512e30f482c7dbc6db8defd7cfc2) Thanks [@Siegrift](https://github.com/Siegrift)! - Add success property inside receipt.json
+
+- [#1277](https://github.com/api3dao/airnode/pull/1277) [`e34bfb8e`](https://github.com/api3dao/airnode/commit/e34bfb8e0b2cc847b19ccb753b316b4486094579) Thanks [@Siegrift](https://github.com/Siegrift)! - Link monorepo packages using project references
+
+### Patch Changes
+
+- [#1286](https://github.com/api3dao/airnode/pull/1286) [`ffba0579`](https://github.com/api3dao/airnode/commit/ffba05791a410f3d3527cc5319b8cb99fd96eccc) Thanks [@dcroote](https://github.com/dcroote)! - Implement relayRequestId security scheme and use it in the the relay security schemes example integration
+
+* [#1245](https://github.com/api3dao/airnode/pull/1245) [`11d49f21`](https://github.com/api3dao/airnode/commit/11d49f21a4a18e44897df58dcba7818be6327c00) Thanks [@Siegrift](https://github.com/Siegrift)! - Support multiline secrets in validator
+
+* Updated dependencies [[`f7c3bb9f`](https://github.com/api3dao/airnode/commit/f7c3bb9f44637bc433134d94265b355d7e8e5761), [`b799a215`](https://github.com/api3dao/airnode/commit/b799a215a0be5822241e97832777cb168b2657e2), [`c7d689e7`](https://github.com/api3dao/airnode/commit/c7d689e7937493f151bafa1c131be77e4396a2aa), [`e34bfb8e`](https://github.com/api3dao/airnode/commit/e34bfb8e0b2cc847b19ccb753b316b4486094579)]:
+  - @api3/airnode-utilities@0.8.0
+
 ## 0.7.1
 
 ### Patch Changes

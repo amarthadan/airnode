@@ -1,5 +1,21 @@
 # @api3/airnode-adapter
 
+## 0.8.0
+
+### Minor Changes
+
+- [#1285](https://github.com/api3dao/airnode/pull/1285) [`b799a215`](https://github.com/api3dao/airnode/commit/b799a215a0be5822241e97832777cb168b2657e2) Thanks [@vponline](https://github.com/vponline)! - Add authorizations configuration to config.json
+
+* [#1291](https://github.com/api3dao/airnode/pull/1291) [`c7d689e7`](https://github.com/api3dao/airnode/commit/c7d689e7937493f151bafa1c131be77e4396a2aa) Thanks [@vponline](https://github.com/vponline)! - Add authorizer type to config.json
+
+- [#1287](https://github.com/api3dao/airnode/pull/1287) [`115c13db`](https://github.com/api3dao/airnode/commit/115c13db7a77e7fbbd48adaef7ef11b7ea63e7f0) Thanks [@Siegrift](https://github.com/Siegrift)! - Use @api3/ois package and remove @api3/airnode-ois
+
+* [#1277](https://github.com/api3dao/airnode/pull/1277) [`e34bfb8e`](https://github.com/api3dao/airnode/commit/e34bfb8e0b2cc847b19ccb753b316b4486094579) Thanks [@Siegrift](https://github.com/Siegrift)! - Link monorepo packages using project references
+
+### Patch Changes
+
+- [#1286](https://github.com/api3dao/airnode/pull/1286) [`ffba0579`](https://github.com/api3dao/airnode/commit/ffba05791a410f3d3527cc5319b8cb99fd96eccc) Thanks [@dcroote](https://github.com/dcroote)! - Implement relayRequestId security scheme and use it in the the relay security schemes example integration
+
 ## 0.7.1
 
 ### Patch Changes
